@@ -1,0 +1,25 @@
+﻿<xml>
+  <!-- possible values: chrome ; iexplore;-->
+  <browser>chrome</browser>
+  
+  <!-- user account settings -->
+  <username>972304</username>
+  <password>bsuirby</password>
+  
+  <!-- menu values -->
+  <menuPattern>Мобильные телефоны</menuPattern>
+  
+  <!-- sort values -->
+  <cheapSortOption>Сначала дешевые</cheapSortOption>
+  
+  <!-- search values -->
+  <customer>Apple</customer>
+  <platform>Android</platform>
+  <applePhone>Apple iPhone 6 16Gb</applePhone>
+  
+  <!-- select values -->
+  <comparableProductsSelect>2</comparableProductsSelect>
+  <comparableProductsUnSelect>2</comparableProductsUnSelect>
+  <comparedProductNumberAfterSelect>2</comparedProductNumberAfterSelect>
+  <comparedProductNumberAfterUnSelect>0</comparedProductNumberAfterUnSelect>
+</xml>
