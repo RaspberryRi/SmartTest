@@ -65,7 +65,6 @@ namespace demo.framework.forms
         public void Logout()
         {
             lkExit.Click();
-            Assert.AreNotEqual(lkExit.IsPresent(), true);
         }
 
         /// <summary>
