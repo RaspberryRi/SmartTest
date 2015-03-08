@@ -10,6 +10,10 @@ namespace demo.tests
         private readonly String username = RunConfigurator.GetValue("username");
         private readonly String password = RunConfigurator.GetValue("password");
         private readonly String menuPattern = RunConfigurator.GetValue("menuPattern");
+        private const string addToLink = "Добавить в ";
+        private const string purchaseInLink = "Товар в";
+        private const string purchaseListLink = "Списке покупок";
+
 
         [Test]
         public void RunTest6()
@@ -32,11 +36,11 @@ namespace demo.tests
             var phoneDescriptionForm = new PhoneDescriptionForm();
 
             Log.Step(5);
-            phoneDescriptionForm.AddToPurchaseList("Добавить в ");
-            phoneDescriptionForm.CheckPurchaseListLink("Товар в");
+            phoneDescriptionForm.AddToPurchaseList(addToLink);
+            phoneDescriptionForm.CheckPurchaseListLink(purchaseInLink);
 
             Log.Step(6);
-            phoneDescriptionForm.ClickLink("Списке покупок");
+            phoneDescriptionForm.ClickLink(purchaseListLink);
             phoneDescriptionForm.AssertPhoneInPurchaseList();
 
             Log.Step(7);

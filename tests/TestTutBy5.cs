@@ -10,6 +10,7 @@ namespace demo.tests
         private readonly String username = RunConfigurator.GetValue("username");
         private readonly String password = RunConfigurator.GetValue("password");
         private readonly String menuPattern = RunConfigurator.GetValue("menuPattern");
+        private const string allСharacteristicsLink = "Все характеристики";
 
         [Test]
         public void RunTest5()
@@ -33,7 +34,7 @@ namespace demo.tests
             string pattern = phoneDescriptionForm.GetMemory();
 
             Log.Step(5);
-            phoneDescriptionForm.ClickLink("Все характеристики");
+            phoneDescriptionForm.ClickLink(allСharacteristicsLink);
             var phoneDescriptionDetailsForm = new PhoneDescriptionDetailsForm();
             phoneDescriptionDetailsForm.AssertPhoneDescription(pattern);
 
