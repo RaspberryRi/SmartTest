@@ -18,6 +18,10 @@ namespace demo.framework.forms
 
         public SearchResultForm() : base(PhonePageLocator, "search result form") { }
 
+        /// <summary>
+        /// method asserts validation of search results by brand
+        /// </summary>
+        /// <param name="customer"></param>
         public void CheckSearchCustomerResults(String customer)
         {
             ReadOnlyCollection<IWebElement> searchResultsCollection = new ReadOnlyCollection<IWebElement>(Browser.GetDriver().FindElements(SearchLocator));
@@ -51,6 +55,9 @@ namespace demo.framework.forms
             Assert.AreEqual(result, true);
         }
 
+        /// <summary>
+        /// method asserts incorrect validation of search results
+        /// </summary>
         public void CheckPageWithoutResults()
         {
             Assert.AreEqual(lkNoElements.IsPresent(), true);

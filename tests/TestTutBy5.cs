@@ -20,6 +20,7 @@ namespace demo.tests
             Log.Step(2);
             mainForm.PressEnterButton();
             mainForm.Login(username, password);
+            mainForm.AssertLogin();
 
             Log.Step(3);
             mainForm.NavigateMenu(menuPattern);
@@ -29,7 +30,7 @@ namespace demo.tests
             Log.Step(4);
             phoneForm.SelectFirstPhone();
             var phoneDescriptionForm = new PhoneDescriptionForm();
-            string pattern = phoneDescriptionForm.GetString();
+            string pattern = phoneDescriptionForm.GetMemory();
 
             Log.Step(5);
             phoneDescriptionForm.ClickLink("Все характеристики");
@@ -38,6 +39,7 @@ namespace demo.tests
 
             Log.Step(6);
             mainForm.Logout();
+            mainForm.AssetrLogout();
         }
     }
 }

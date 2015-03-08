@@ -22,6 +22,7 @@ namespace demo.tests
             Log.Step(2);
             mainForm.PressEnterButton();
             mainForm.Login(username, password);
+            mainForm.AssertLogin();
 
             Log.Step(3);
             mainForm.NavigateMenu(menuPattern);
@@ -38,6 +39,7 @@ namespace demo.tests
 
             Log.Step(5);
             mainForm.Logout();
+            mainForm.AssetrLogout();
         }
     }
 }

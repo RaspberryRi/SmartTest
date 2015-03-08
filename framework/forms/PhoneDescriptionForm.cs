@@ -20,21 +20,36 @@ namespace demo.framework.forms
 
         public PhoneDescriptionForm() : base(PhonePageLocator, "description for one phone form") { }
 
+        /// <summary>
+        /// method add phone to the purchase list
+        /// </summary>
+        /// <param name="pattern"></param>
         public void AddToPurchaseList(String pattern)
         {
             new Link(By.XPath(String.Format(lkAddToPurchaseList, pattern)), pattern).Click();
         }
 
+        /// <summary>
+        /// method assert that add to purchase list link changed its name
+        /// </summary>
+        /// <param name="pattern"></param>
         public void CheckPurchaseListLink(String pattern)
         {
             Assert.AreEqual(new Link(By.XPath(String.Format(lkAddToPurchaseList, pattern)), pattern).IsPresent(), true);
         }
 
+        /// <summary>
+        /// method for pressing link with pattern name
+        /// </summary>
+        /// <param name="pattern"></param>
         public void ClickLink(String pattern)
         {
             new Link(By.XPath(String.Format(linkPattern, pattern)), pattern).Click();
         }
 
+        /// <summary>
+        /// method assert that phone is in purchase list
+        /// </summary>
         public void AssertPhoneInPurchaseList()
         {
             String pattern = Browser.GetDriver().FindElement(lkSelectedPhone).Text;
@@ -42,7 +57,11 @@ namespace demo.framework.forms
             Assert.AreEqual((new Link(By.XPath(String.Format(lkPhoneInPurchaseList, pattern)), pattern)).IsPresent(), true);
         }
 
-        public string GetString()
+        /// <summary>
+        /// method for getting declared built-in memory
+        /// </summary>
+        /// <returns></returns>
+        public string GetMemory()
         {
             var phone = Browser.GetDriver().FindElement(lkMemory);
 

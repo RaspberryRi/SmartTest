@@ -17,6 +17,9 @@ namespace demo.framework.forms
 
         public SortResultCheapPhonesForm() : base(lkCheap, "sort result for cheap products form") { }
 
+        /// <summary>
+        /// method asserts that descending sort results is correct
+        /// </summary>
         public void CountPrices()
         {
             bool counter = true;

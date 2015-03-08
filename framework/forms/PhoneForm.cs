@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Runtime.ExceptionServices;
-using System.Runtime.Serialization.Formatters;
 using System.Text.RegularExpressions;
 using demo.framework.Elements;
-using NUnit.Core;
 using OpenQA.Selenium;
 using NUnit.Framework;
 
@@ -30,8 +26,12 @@ namespace demo.framework.forms
         private readonly Link lkFirstPhoneImg = new Link(By.XPath("//img[@data-compare_img]"), "first phone img link");
         private const String lkSort = "//span[contains(text(), '{0}')]";
 
-        public PhoneForm() : base(PhonePageLocator, "mobilnye telefony form") { }
+        public PhoneForm() : base(PhonePageLocator, "phone form") { }
 
+        /// <summary>
+        /// method for assert correct display of first phone
+        /// </summary>
+        /// <param name="applePhone"></param>
         public void AssertFirstPhoneTitle(String applePhone)
         {
             bool result = false;
@@ -54,6 +54,10 @@ namespace demo.framework.forms
             Assert.AreEqual(result, true);
         }
 
+        /// <summary>
+        /// method for select comparable products checkbox
+        /// </summary>
+        /// <param name="cbNum"></param>
         public void SelectComparableProducts(int cbNum)
         {
             int j;
@@ -68,6 +72,10 @@ namespace demo.framework.forms
             }
         }
 
+        /// <summary>
+        /// method for assert correct display of compared products number
+        /// </summary>
+        /// <param name="count"></param>
         public void AssertComparedProductNumber(int count)
         {
             var compareCount = Browser.GetDriver().FindElement(compareNum);
@@ -75,7 +83,11 @@ namespace demo.framework.forms
             Assert.AreEqual(compareCount.Text, "" + count);
             Log.Info("Value of the goods was changed to " + count);
         }
-
+        
+        /// <summary>
+        /// method for selecting customer checkbox
+        /// </summary>
+        /// <param name="tabName"></param>
         public void SelectCustomerCheckBox(String tabName)
         {
             lkAllCustomers.Click();
@@ -83,16 +95,26 @@ namespace demo.framework.forms
             new Link(By.XPath(String.Format(cbCustomer, tabName)), tabName).Click();
         }
 
+        /// <summary>
+        /// method assert if displays a popup element that shows the number of found models
+        /// </summary>
         public void AssertCustomerNumberIsPresent()
         {
             Assert.AreEqual(lkFasrChoice.IsPresent(), true);
         }
             
+        /// <summary>
+        /// method for pressing search customer button
+        /// </summary>
         public void SearchCustomerModel()
         {
             btSearch.Click();
         }
 
+        /// <summary>
+        /// method for selecting phone plathorm
+        /// </summary>
+        /// <param name="platform"></param>
         public void SelectPlatform(String platform)
         {
             btPlatform.Click();
@@ -100,11 +122,18 @@ namespace demo.framework.forms
             new Link(By.XPath(String.Format(btDropdownPlatform, platform)), platform).Click();
         }
 
+        /// <summary>
+        /// method for selecting first phone image link 
+        /// </summary>
         public void SelectFirstPhone()
         {
             lkFirstPhoneImg.Click();
         }
 
+        /// <summary>
+        /// method for selecting sort option
+        /// </summary>
+        /// <param name="sortOption"></param>
         public void SelectSortOption(String sortOption)
         {
             new Link(By.XPath(String.Format(lkSort, sortOption)), sortOption).Click();

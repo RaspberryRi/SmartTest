@@ -20,6 +20,10 @@ namespace demo.framework.forms
         public PhoneDescriptionDetailsForm()
             : base(lkDetails, "description details for one phone form") { }
 
+        /// <summary>
+        /// method asserts that built-in memory consistent with the declared
+        /// </summary>
+        /// <param name="pattern"></param>
         public void AssertPhoneDescription(string pattern)
         {
             bool result = false;
@@ -40,7 +44,6 @@ namespace demo.framework.forms
             }
 
             Assert.AreEqual(result, true);
-
         }
     }
 }
